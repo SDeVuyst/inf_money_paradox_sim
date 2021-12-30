@@ -10,11 +10,9 @@ def main():
     simulate(amount)
 
     # count how many of each instance
-    amount_of_values = Counter(list_of_values)
     amount_of_flips = Counter(list_of_flips)
 
     # put the values back into a list
-    keys_values, values_values = zip(*amount_of_values.items())
     keys_flips, values_flips = zip(*amount_of_flips.items())
 
     # calculate average winning
@@ -27,10 +25,7 @@ def main():
     ax1.set_title('amount of consecutive flips')
     ax2.plot(list_of_flips, list_of_values, 'o')
     ax2.set_title('winnings per amount of flips')
-
     plt.figtext(0.275, 0.02, f' average winning is {average_winning}', fontsize=10)
-    
-
     plt.show()
 
     
@@ -54,6 +49,7 @@ def simulate(amount):
         flip = coinflip()
         list_of_values.append(flip[0])
         list_of_flips.append(flip[1])
+
 
 if __name__ == '__main__':
     main()
